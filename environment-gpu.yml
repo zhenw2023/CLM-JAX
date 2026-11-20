@@ -1,0 +1,15 @@
+name: clm-jax-gpu
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11.15
+  - jax=0.10.2
+  - jaxlib=0.10.2=cuda129_py311h54675af_201
+  - cuda-version=12.9
+  - numpy=2.4.6
+  - xarray=2026.7.0
+  - netcdf4=1.7.4
+  - cftime=1.6
+  - f90nml=1.5
+  - setuptools=84.0.0
+  - pip

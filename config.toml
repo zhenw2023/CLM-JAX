@@ -1,0 +1,38 @@
+schema_version = 1
+
+[case]
+directory = "/path/to/I2000Clm50BgcCrop"
+inputdata_root = "/path/to/inputdata"
+restart_file = "/path/to/restarts/I2000Clm50BgcCrop.clm2.r.2019-01-01-00000.nc"
+coupler_restart_file = "/path/to/restarts/I2000Clm50BgcCrop.cpl.r.2019-01-01-00000.nc"
+
+[forcing]
+nearest_fill_mapping = "reference/maps/wfde5_land_fill_nearest.nc"
+bilinear_remapping = "reference/maps/wfde5_to_f09_bilinear.nc"
+chunk_steps = 48
+
+[time]
+start = "2019-01-01T00:00:00"
+stop = "2019-01-02T00:00:00"
+time_step_seconds = 1800
+calendar = "noleap"
+run_type = "branch"
+
+[execution]
+backend = "cpu"
+device_count = 1
+enable_x64 = true
+jit = true
+gpu_loop_command_buffers = false
+gpu_pin_dispatch_thread = false
+compilation_cache_directory = "../clm-jax-cache"
+maximum_rss_gib = 220.0
+
+[output]
+directory = "../clm-jax-output"
+history_interval_steps = 1
+restart_interval_steps = 48
+overwrite = false
+
+[development]
+preflight_only = false
